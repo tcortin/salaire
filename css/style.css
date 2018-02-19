@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+main{
+    width: fit-content;
+    margin: 80px auto;
+    padding: 5px 15px 15px 15px;
+    color: #fff;
+    background: #222f3e;
+    border-radius: 10px;
+}
+h1{
+    font-family: 'Galada', sans-serif;
+    text-align: center;
+}
+hr{
+    border-color: #576574;
+}
+
+/* INPUT */
+
+input{
+    text-align: right;
+}
+.field{
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); 
+    height: 30px;    
+    padding: 0 5px 0 5px;
+}
+.field:after, .field:before{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #bbbbbb;
+}
+.field:after{
+    background-color: #10ac84;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+.field.is-focused:after{
+    transform: scaleX(1);
+}
+.field input{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 32px;
+    padding: 8px 0;
+  
+    color: #fff;
+    line-height: 16px;
+    font-size: 16px;
+  
+    background: transparent;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+input:focus{
+    box-shadow: unset;
+    outline: 0;
+}
+
+/* TABLE */
+
+.categorie{
+    text-align: center;
+}
