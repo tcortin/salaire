@@ -1,5 +1,6 @@
 *{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 body {
     font-family: 'Raleway', sans-serif;
@@ -7,6 +8,8 @@ body {
     margin: 0 auto;
   }
 main{
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 80px auto;
     padding: 5px 15px 15px 15px;
@@ -44,11 +47,19 @@ input{
 }
 .field:after{
     background-color: #10ac84;
-    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    -o-transition: transform 0.3s;
     transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .field.is-focused:after{
-    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
 }
 .field input{
     position: relative;
@@ -67,7 +78,8 @@ input{
     -webkit-appearance: none;
 }
 input:focus{
-    box-shadow: unset;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
     outline: 0;
 }
 
