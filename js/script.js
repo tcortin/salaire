@@ -1,11 +1,11 @@
 (function () {
     
-    const valeurA = document.getElementById("brut-horaire");
-    const valeurB = document.getElementById("net-horaire");
-    const valeurC = document.getElementById("brut-mensuel");
-    const valeurD = document.getElementById("net-mensuel");
-    const valeurE = document.getElementById("brut-annuel");
-    const valeurF = document.getElementById("net-annuel");
+    const horaireBrut = document.getElementById("brut-horaire");
+    const horaireNet = document.getElementById("net-horaire");
+    const mensuelBrut = document.getElementById("brut-mensuel");
+    const mensuelNet = document.getElementById("net-mensuel");
+    const annuelBrut = document.getElementById("brut-annuel");
+    const annuelNet = document.getElementById("net-annuel");
 
     let brutHoraire;
     let netHoraire;
@@ -14,106 +14,112 @@
     let brutAnnuel;
     let netAnnuel;
     
-    valeurA.onkeyup = function (){
-        if(isNaN(valeurA.value)){
-            valeurA.value = "";
+    horaireBrut.onkeyup = function (){
+        if(isNaN(horaireBrut.value)){
+            horaireBrut.value = "";
         }
         else{            
-            netHoraire = (Number(77 * valeurA.value)/100).toFixed(2);
-            brutMensuel = (Number(valeurA.value * 151.65)).toFixed(0);
-            netMensuel = (Number(netHoraire * 151.65)).toFixed(0);
-            brutAnnuel = (Number(brutMensuel * 12)).toFixed(0);
-            netAnnuel = (Number(netMensuel * 12)).toFixed(0);
-            valeurB.value = netHoraire + " €";
-            valeurC.value = brutMensuel + " €";
-            valeurD.value = netMensuel + " €";
-            valeurE.value = brutAnnuel + " €";
-            valeurF.value = netAnnuel + " €";
+            netHoraire = Number(((77 * horaireBrut.value)/100).toFixed(2));
+            brutMensuel = Number((horaireBrut.value * 151.65).toFixed(0));
+            netMensuel = Number((netHoraire * 151.65).toFixed(0));
+            brutAnnuel = Number((brutMensuel * 12).toFixed(0));
+            netAnnuel = Number((netMensuel * 12).toFixed(0));
+
+            horaireNet.value = netHoraire.toLocaleString() + " €";
+            mensuelBrut.value = brutMensuel.toLocaleString() + " €";
+            mensuelNet.value = netMensuel.toLocaleString() + " €";
+            annuelBrut.value = brutAnnuel.toLocaleString() + " €";
+            annuelNet.value = netAnnuel.toLocaleString() + " €";
         }
     }    
-    valeurB.onkeyup = function (){
-        if(isNaN(valeurB.value)){
-            valeurB.value = "";
+    horaireNet.onkeyup = function (){
+        if(isNaN(horaireNet.value)){
+            horaireNet.value = "";
         }
         else{
-            brutHoraire = (Number(100 * valeurB.value)/77).toFixed(2);
-            brutMensuel = (Number(brutHoraire * 151.65)).toFixed(0);
-            netMensuel = (Number(valeurB.value * 151.65)).toFixed(0);
-            brutAnnuel = (Number(brutMensuel * 12)).toFixed(0);
-            netAnnuel = (Number(netMensuel * 12)).toFixed(0);
-            valeurA.value = brutHoraire + " €";
-            valeurC.value = brutMensuel + " €";
-            valeurD.value = netMensuel + " €";
-            valeurE.value = brutAnnuel + " €";
-            valeurF.value = netAnnuel + " €";
+            brutHoraire = Number(((100 * horaireNet.value)/77).toFixed(2));
+            brutMensuel = Number((brutHoraire * 151.65).toFixed(0));
+            netMensuel = Number((horaireNet.value * 151.65).toFixed(0));
+            brutAnnuel = Number((brutMensuel * 12).toFixed(0));
+            netAnnuel = Number((netMensuel * 12).toFixed(0));
+
+            horaireBrut.value = brutHoraire.toLocaleString() + " €";
+            mensuelBrut.value = brutMensuel.toLocaleString() + " €";
+            mensuelNet.value = netMensuel.toLocaleString() + " €";
+            annuelBrut.value = brutAnnuel.toLocaleString() + " €";
+            annuelNet.value = netAnnuel.toLocaleString() + " €";
         }
     }
-    valeurC.onkeyup = function (){
-        if(isNaN(valeurC.value)){
-            valeurC.value = "";
+    mensuelBrut.onkeyup = function (){
+        if(isNaN(mensuelBrut.value)){
+            mensuelBrut.value = "";
         }
         else{
-            brutHoraire = (Number(valeurC.value / 151.65)).toFixed(2);
-            brutAnnuel = (Number(valeurC.value * 12)).toFixed(0);
-            netHoraire = (Number(77 * brutHoraire)/100).toFixed(2);
-            netMensuel = (Number(netHoraire * 151.65)).toFixed(0);
-            netAnnuel = (Number(netMensuel * 12)).toFixed(0);
-            valeurA.value = brutHoraire + " €";
-            valeurB.value = netHoraire + " €";
-            valeurD.value = netMensuel + " €";
-            valeurE.value = brutAnnuel + " €";
-            valeurF.value = netAnnuel + " €";
+            brutHoraire = Number((mensuelBrut.value / 151.65).toFixed(2));
+            brutAnnuel = Number((mensuelBrut.value * 12).toFixed(0));
+            netHoraire = Number(((77 * brutHoraire)/100).toFixed(2));
+            netMensuel = Number((netHoraire * 151.65).toFixed(0));
+            netAnnuel = Number((netMensuel * 12).toFixed(0));
+
+            horaireBrut.value = brutHoraire.toLocaleString() + " €";
+            horaireNet.value = netHoraire.toLocaleString() + " €";
+            mensuelNet.value = netMensuel.toLocaleString() + " €";
+            annuelBrut.value = brutAnnuel.toLocaleString() + " €";
+            annuelNet.value = netAnnuel.toLocaleString() + " €";
         }
     }
-    valeurD.onkeyup = function (){
-        if(isNaN(valeurD.value)){
-            valeurD.value = "";
+    mensuelNet.onkeyup = function (){
+        if(isNaN(mensuelNet.value)){
+            mensuelNet.value = "";
         }
         else{
-            netHoraire = (Number(valeurD.value / 151.65)).toFixed(2);
-            netAnnuel = (Number(valeurD.value * 12)).toFixed(0);
-            brutHoraire = (Number(100 * netHoraire)/77).toFixed(2);
-            brutMensuel = (Number(brutHoraire * 151.65)).toFixed(0);
-            brutAnnuel = (Number(brutMensuel * 12)).toFixed(0);
-            valeurA.value = brutHoraire + " €";
-            valeurB.value = netHoraire + " €";
-            valeurC.value = brutMensuel + " €";
-            valeurE.value = brutAnnuel + " €";
-            valeurF.value = netAnnuel + " €";
+            netHoraire = Number((mensuelNet.value / 151.65).toFixed(2));
+            netAnnuel = Number((mensuelNet.value * 12).toFixed(0));
+            brutHoraire = Number(((100 * netHoraire)/77).toFixed(2));
+            brutMensuel = Number((brutHoraire * 151.65).toFixed(0));
+            brutAnnuel = Number((brutMensuel * 12).toFixed(0));
+
+            horaireBrut.value = brutHoraire.toLocaleString() + " €";
+            horaireNet.value = netHoraire.toLocaleString() + " €";
+            mensuelBrut.value = brutMensuel.toLocaleString() + " €";
+            annuelBrut.value = brutAnnuel.toLocaleString() + " €";
+            annuelNet.value = netAnnuel.toLocaleString() + " €";
         }
     }
-    valeurE.onkeyup = function (){
-        if(isNaN(valeurE.value)){
-            valeurE.value = "";
+    annuelBrut.onkeyup = function (){
+        if(isNaN(annuelBrut.value)){
+            annuelBrut.value = "";
         }
         else{
-            brutMensuel = (Number(valeurE.value / 12)).toFixed(0);
-            brutHoraire = (Number(brutMensuel / 151.65)).toFixed(2);
-            netHoraire = (Number(77 * brutHoraire)/100).toFixed(2);
-            netMensuel = (Number(netHoraire * 151.65)).toFixed(0);
-            netAnnuel = (Number(netMensuel * 12)).toFixed(0);
-            valeurA.value = brutHoraire + " €";
-            valeurB.value = netHoraire + " €";
-            valeurC.value = brutMensuel + " €";
-            valeurD.value = netMensuel + " €";
-            valeurF.value = netAnnuel + " €";
+            brutMensuel = Number((annuelBrut.value / 12).toFixed(0));
+            brutHoraire = Number((brutMensuel / 151.65).toFixed(2));
+            netHoraire = Number(((77 * brutHoraire)/100).toFixed(2));
+            netMensuel = Number((netHoraire * 151.65).toFixed(0));
+            netAnnuel = Number((netMensuel * 12).toFixed(0));
+
+            horaireBrut.value = brutHoraire.toLocaleString() + " €";
+            horaireNet.value = netHoraire.toLocaleString() + " €";
+            mensuelBrut.value = brutMensuel.toLocaleString() + " €";
+            mensuelNet.value = netMensuel.toLocaleString() + " €";
+            annuelNet.value = netAnnuel.toLocaleString() + " €";
         }
     }
-    valeurF.onkeyup = function (){
-        if(isNaN(valeurF.value)){
-            valeurF.value = "";
+    annuelNet.onkeyup = function (){
+        if(isNaN(annuelNet.value)){
+            annuelNet.value = "";
         }
         else{
-            netMensuel = (Number(valeurF.value / 12)).toFixed(0);
-            netHoraire = (Number(netMensuel / 151.65)).toFixed(2);
-            brutHoraire = (Number(100 * netHoraire)/77).toFixed(2);
-            brutMensuel = (Number(brutHoraire * 151.65)).toFixed(0);
-            brutAnnuel = (Number(brutMensuel * 12)).toFixed(0);
-            valeurA.value = brutHoraire + " €";
-            valeurB.value = netHoraire + " €";
-            valeurC.value = brutMensuel + " €";
-            valeurD.value = netMensuel + " €";
-            valeurE.value = brutAnnuel + " €";
+            netMensuel = Number((annuelNet.value / 12).toFixed(0));
+            netHoraire = Number((netMensuel / 151.65).toFixed(2));
+            brutHoraire = Number(((100 * netHoraire)/77).toFixed(2));
+            brutMensuel = Number((brutHoraire * 151.65).toFixed(0));
+            brutAnnuel = Number((brutMensuel * 12).toFixed(0));
+            
+            horaireBrut.value = brutHoraire.toLocaleString() + " €";
+            horaireNet.value = netHoraire.toLocaleString() + " €";
+            mensuelBrut.value = brutMensuel.toLocaleString() + " €";
+            mensuelNet.value = netMensuel.toLocaleString() + " €";
+            annuelBrut.value = brutAnnuel.toLocaleString() + " €";
         }
     }
 
